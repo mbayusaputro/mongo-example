@@ -40,22 +40,17 @@
 <body>
   <div class="container">
     <h1>Welcome to My REST API</h1>
-    <p>Enter keydb and click the button to clear data from API.</p>
-    <input type="text" id="keydb" placeholder="Enter keydb" />
     <button onclick="fetchData()">Clear Data</button>
     <pre id="output"></pre>
   </div>
 
   <script>
     async function fetchData() {
-      const keydbValue = document.getElementById("keydb").value;
-
       const response = await fetch('/api/delete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          status: "IN_PROGRESS",
-          keydb: keydbValue
+          status: "IN_PROGRESS"
         })
       });
 
